@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#wrapper {
+  width: 450px;
+  margin: 0 auto;
+}
+
+#canvas {
+  border: solid thin black;
+}
+
+#score, #time {
+  margin: 10px 0;
+}
+#score::before {
+  content: 'Points: ';
+}
+#time::before {
+  content: 'Time Elapsed: ';
+}
+#time::after {
+  content: 's';
+}
