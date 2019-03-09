@@ -19,7 +19,7 @@ class Renderer {
   void drawCell(Point coords, String color) {
     ctx2D
       ..fillStyle = color
-      ..strokeStyle = 'white';
+      ..strokeStyle = '#eee';
 
     final int x = coords.x * CELL_SIZE;
     final int y = coords.y * CELL_SIZE;
@@ -36,7 +36,7 @@ class Renderer {
 
   void clear() {
     ctx2D
-      ..fillStyle = 'white'
+      ..fillStyle = '#eee'
       ..fillRect(0, 0, canvas.width, canvas.height);
   }
 

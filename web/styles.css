@@ -6,6 +6,7 @@
 }
 body {
   font-family: 'Roboto', sans-serif;
+  background: #555;
 }
 
 #wrapper {
@@ -14,16 +15,20 @@ body {
 }
 
 #canvas {
-  border: solid thin black;
+  background: #eee;
 }
 
 #score, #time {
+  font-weight: bold;
+  color: white;
   margin: 10px 0;
 }
 #score::before {
+  font-weight: normal;
   content: 'Points: ';
 }
 #time::before {
+  font-weight: normal;
   content: 'Time Elapsed: ';
 }
 #time::after {
