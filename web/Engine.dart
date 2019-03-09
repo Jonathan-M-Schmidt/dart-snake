@@ -15,6 +15,7 @@ class Engine {
   Point _food;
   Renderer _renderer;
   State _state;
+  bool _shouldStop;
 
   Engine(Renderer renderer) {
     _renderer = renderer;
@@ -25,6 +26,7 @@ class Engine {
   }
 
   void init() {
+    _shouldStop = false;
     _state = State();
     _snake = new Snake(_renderer);
     _food = _randomPoint();
@@ -51,11 +53,18 @@ class Engine {
     }
   }
 
+  void stop() {
+    _shouldStop = true;
+  }
+
   Future run() async {
     update(await window.animationFrame);
   }
 
   void update(num delta) {
+    if (_shouldStop) {
+      return;
+    }
     final num diff = delta - _lastTimestamp;
 
     if (diff > GAME_SPEED) {

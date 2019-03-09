@@ -34,3 +34,31 @@ body {
 #time::after {
   content: 's';
 }
+
+.button {
+  display: inline-block;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-decoration: none;
+  background: #588385;
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.button:hover,
+.button:focus {
+  background: #4f7477;
+}
+
+
+.button:active {
+  transform: scale(0.99);
+}
