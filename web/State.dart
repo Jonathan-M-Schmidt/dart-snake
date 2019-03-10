@@ -17,4 +17,12 @@ class State {
   }
 
   int get score => _score;
+
+  void pause() {
+    _stopwatch.stop();
+  }
+
+  void unPause() {
+    _stopwatch.start();
+  }
 }

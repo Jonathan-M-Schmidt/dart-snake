@@ -16,6 +16,7 @@ class Engine {
   Renderer _renderer;
   State _state;
   bool _shouldStop;
+  bool _isPaused;
 
   Engine(Renderer renderer) {
     _renderer = renderer;
@@ -27,6 +28,7 @@ class Engine {
 
   void init() {
     _shouldStop = false;
+    _isPaused = false;
     _state = State();
     _snake = new Snake(_renderer);
     _food = _randomPoint();
@@ -57,12 +59,28 @@ class Engine {
     _shouldStop = true;
   }
 
+  void pause() {
+    _state.pause();
+    _isPaused = true;
+  }
+
+  void unPause() {
+    _state.unPause();
+    _isPaused = false;
+  }
+
+  bool get isPaused => _isPaused;
+
   Future run() async {
     update(await window.animationFrame);
   }
 
   void update(num delta) {
     if (_shouldStop) {
+      return;
+    }
+    if (_isPaused) {
+      run();
       return;
     }
     final num diff = delta - _lastTimestamp;
